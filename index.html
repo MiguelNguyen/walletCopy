@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script text="type/javascript">
+    window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(19),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{h?h-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(20),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,h=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(p){"stack"in p&&(t(12),t(11),"addEventListener"in window&&t(6),s.xhrWrappable&&t(13),u=!0)}c.on("fn-start",function(t,e,n){u&&(h+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&h>0&&(h-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(){N++,S=y.hash,this[u]=Date.now()}function o(){N--,y.hash!==S&&i(0,!0);var t=Date.now();this[l]=~~this[l]+t-this[u],this[h]=t}function i(t,e){x.emit("newURL",[""+y,e])}function a(t,e){t.on(e,function(){this[e]=Date.now()})}var c="-start",s="-end",f="-body",u="fn"+c,h="fn"+s,p="cb"+c,d="cb"+s,l="jsTime",m="fetch",v="addEventListener",w=window,y=w.location;if(w[v]){var g=t(9),b=t(10),x=t(8),E=t(6),T=t(12),O=t(7),P=t(13),R=t("ee"),D=R.get("tracer");t(14),t("loader").features.spa=!0;var S,M=w[v],N=0;R.on(u,r),R.on(p,r),R.on(h,o),R.on(d,o),R.buffer([u,h,"xhr-done","xhr-resolved"]),E.buffer([u]),T.buffer(["setTimeout"+s,"clearTimeout"+c,u]),P.buffer([u,"new-xhr","open-xhr"+c]),O.buffer([m+c,m+"-done",m+f+c,m+f+s]),x.buffer(["newURL"]),g.buffer([u]),b.buffer(["propagate",p,d,"executor-err","resolve"+c]),D.buffer([u,"no-"+u]),a(P,"open-xhr"+c),a(R,"xhr-resolved"),a(R,"xhr-done"),a(O,m+c),a(O,m+"-done"),x.on("pushState-end",i),x.on("replaceState-end",i),M("hashchange",i,!0),M("load",i,!0),M("popstate",function(){i(0,N>1)},!0)}},{}],5:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(12),c=t(11),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",h="bstResource",p="resource",d="-start",l="-end",m="fn"+d,v="fn"+l,w="bstTimer",y="pushState";t("loader").features.stn=!0,t(8);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(v,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(v,function(t,e){i(w,[e,this.bstStart,Date.now(),this.bstType])}),c.on(m,function(){this.bstStart=Date.now()}),c.on(v,function(t,e){i(w,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+d,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+l,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(h,[window.performance.getEntriesByType(p)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(h,[window.performance.getEntriesByType(p)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],6:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,h],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(21)(a),s=t("gos"),f=XMLHttpRequest,u="addEventListener",h="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=s(n,"nr@wrapped",function(){return c(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&c.inPlace(n,["handleEvent"],"fn-")}}),a.on(h+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],7:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=r.apply(this,arguments);return o.emit(n+"start",arguments,t),t.then(function(e){return o.emit(n+"end",[null,e],t),e},function(e){throw o.emit(n+"end",[e],t),e})})}var o=t("ee").get("fetch"),i=t(19);e.exports=o;var a=window,c="fetch-",s=c+"body-",f=["arrayBuffer","blob","json","text","formData"],u=a.Request,h=a.Response,p=a.fetch,d="prototype";u&&h&&p&&(i(f,function(t,e){r(u[d],e,s),r(h[d],e,s)}),r(a,"fetch",c),o.on(c+"end",function(t,e){var n=this;e?e.clone().arrayBuffer().then(function(t){n.rxSize=t.byteLength,o.emit(c+"done",[null,e],n)}):o.emit(c+"done",[t],n)}))},{}],8:[function(t,e,n){var r=t("ee").get("history"),o=t(21)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],9:[function(t,e,n){var r=t("ee").get("mutation"),o=t(21)(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],10:[function(t,e,n){function r(t){var e=a.context(),n=c(t,"executor-",e),r=new f(n);return a.context(r).getCtx=function(){return e},a.emit("new-promise",[r,e],e),r}function o(t,e){return e}var i=t(21),a=t("ee").get("promise"),c=i(a),s=t(19),f=NREUM.o.PR;e.exports=a,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){a.emit("propagate",[null,!o],i),o=o||!t}}var o=!1;s(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var i=e.apply(f,arguments),c=f.resolve(i);return c}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&a.emit("propagate",[t,!0],n),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),s(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),a.on("executor-start",function(t){t[0]=c(t[0],"resolve-",this),t[1]=c(t[1],"resolve-",this)}),a.on("executor-err",function(t,e,n){t[1](n)}),c.inPlace(f.prototype,["then"],"then-",o),a.on("then-start",function(t,e){this.promise=e,t[0]=c(t[0],"cb-",this),t[1]=c(t[1],"cb-",this)}),a.on("then-end",function(t,e,n){this.nextPromise=n;var r=this.promise;a.emit("propagate",[r,!0],n)}),a.on("cb-end",function(t,e,n){a.emit("propagate",[n,!0],this.nextPromise)}),a.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=a.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],11:[function(t,e,n){var r=t("ee").get("raf"),o=t(21)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],12:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(21)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",h="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+h),a.inPlace(window,[s],s+h),a.inPlace(window,[f,"clearImmediate"],f+h),i.on(s+u,r),i.on(c+u,o)},{}],13:[function(t,e,n){function r(t,e){h.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),h.inPlace(t,v,"fn-",c)}function i(t){w.push(t),l&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(6);var f=t("ee"),u=f.get("xhr"),h=t(21)(u),p=NREUM.o,d=p.XHR,l=p.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new d(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(d,y),y.prototype=d.prototype,h.inPlace(y.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),l){var g=1,b=document.createTextNode(g);new l(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],14:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<h;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return l(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(15),f=t("ee"),u=["load","error","abort","timeout"],h=u.length,p=t("id"),d=t(18),l=t(17),m=window.XMLHttpRequest;a.features.xhr=!0,t(13),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,d&&(d>34||d<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=l(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<h;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],15:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],16:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(19),c=t(20),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","finished","addToTrace","inlineHit"],h="api-",p=h+"ixn-";a(u,function(t,e){f[e]=o(h+e,!0,"api")}),f.addPageAction=o(h+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(p+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){d[e]=o(p+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],17:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],18:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],19:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],20:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],21:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(20),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){h([u,"",[r,a,o],c])}f(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(p){throw f(e+"err",[r,a,p],c),p}finally{f(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<n.length;s++)c=n[s],a=t[c],r(a)||(t[c]=e(a,f?c+o:o,i,c))}function f(e,n,r){if(!s){s=!0;try{t.emit(e,n,r)}catch(o){h([o,e,n,r])}s=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){h([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function h(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?c(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=p(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function h(t,e){m[t]=p(t).concat(e)}function p(t){return m[t]||[]}function d(t){return u[t]=u[t]||o(n)}function l(t,e){s(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:h,emit:n,get:d,listeners:p,context:e,buffer:l};return w}function i(){return new r}var a="nr@context",c=t("gos"),s=t(19),f={},u={},h=e.exports=o();h.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(v,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",c("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(19),f=window,u=f.document,h="addEventListener",p="attachEvent",d=f.XMLHttpRequest,l=d&&d.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:d,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(16);var m=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-963.min.js"},w=d&&l&&l[h]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:w};u[h]?(u[h]("DOMContentLoaded",i,!1),f[h]("load",r,!1)):(u[p]("onreadystatechange",o),f[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,14,5,3,4]);
+    ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"d22d954768",applicationID:"26198686",sa:1}
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        },
+        i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a,m)
+      })(
+        window,
+        document,
+        'script',
+        '//www.google-analytics.com/analytics.js',
+        'ga'
+      );
+      ga('create', 'UA-8032746-1', 'auto');
+      ga('require', 'displayfeatures');
+    </script>
+
+    <script>
+        (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5000528"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
+    </script>
+    <noscript>
+        <img src="//bat.bing.com/action/0?ti=5000528&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" />
+    </noscript>
+    <title>Compare Best Credit Card Offers | Car Insurance | CD Rates | Savings</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta name="description" content="NerdWallet is a free tool to find you the best credit card offers, cd rates, savings and checking accounts, insurance, and other financial products. Start here to maximize your rewards or minimize your interest rates.">
+    <meta name="keywords" content="credit card offers, cd rates, savings, checking accounts">
+      <meta name="variant-ids" content="447">
+        <meta property="og:description" content="NerdWallet is a free tool to find you the best credit card offers, cd rates, savings and checking accounts, insurance, and other financial products. Start here to maximize your rewards or minimize your interest rates.">
+        <meta property="og:image" content="http://assets.nerdwallet.com/img/nw-logos/NW-default_og-image.jpg">
+        <meta property="og:image:secure_url" content="https://assets.nerdwallet.com/img/nw-logos/NW-default_og-image.jpg">
+      <meta name="ga-user-authentication-state" content="logged_out">
+      <link rel="canonical" href="https://www.nerdwallet.com/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png">
+    <link rel="image_src" href="//assets.nerdwallet.com/img/nw-logos/NW_logo_200x200.png">
+
+    <!-- global css -->
+    <link rel="stylesheet" type="text/css" href="/css/font-bundle.min.css?v=ebb5a9301090d34c73e4abaad3958925">
+    <link rel="stylesheet" type="text/css" href="/css/bundle.min.css?v=0876a49e6f4283a3a5b11fb7762e16ee">
+    <!-- page specific css -->
+      <link rel="stylesheet" type="text/css" href="/public/build/css/bundle.b5668baa2fa10c36f3bc.css">
+
+    <!-- facebook instant articles snippet -->
+    <meta property="fb:pages" content="108521893501" />
+    <!-- ClickTale Top part -->
+    <script type="text/javascript">
+    var WRInitTime=(new Date()).getTime();
+    </script>
+    <!-- ClickTale end of Top part -->
+    <script async type="text/javascript" src="//tags.bluekai.com/site/33180?ret=js&limit=1"></script>
+    <script async src="//cdn.optimizely.com/js/83458010.js"></script>
+
+    <script type="text/javascript">
+      setTimeout(function () {
+        var a = document.createElement("script");
+        var b = document.getElementsByTagName("script")[0];
+        a.src = document.location.protocol
+          + "//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/0925.js?"
+          + Math.floor(new Date().getTime()/3600000)
+          ;
+        a.async = true;
+        a.type = "text/javascript";
+        b.parentNode.insertBefore(a,b)
+      }, 1);
+    </script>
+    <!-- Global JS -->
+    <!--[if IE 8]><script
+    src="/global_styles/node_modules/html5shiv/dist/html5shiv.min.js"
+    ></script><![endif]-->
+    <script type="text/javascript" src="/js/bundle.min.js?v=63daca39013b45ceea782fb088fec4b6"></script>
+    <!-- Page Specific JS -->
+    
+  </head>
+  <body class="default global-nav">
+<header class="global-header nw-xl-v1">
+    <div class="branch-journeys-top"></div>
+    <a class="credit-score-banner" href="/home/register?flow=credit-score&trk_source=nw_gn_4.0&trk_app=front-page&trk_origin=homepage&trk_destination=credit-score-signup&trk_location=nav-banner-signup">
+        <div class="credit-score-banner__icon"></div>
+        <div class="credit-score-banner__text">Sign up for your free credit score.</div>
+    </a>
+    <ul class="login-menu">
+    
+        <li>
+            <span class="login-menu-item-tag-line">Get your free credit score.</span>
+        </li>
+        <li>
+            <a href="/home/signin?flow=credit-score&trk_source=nw_gn_4.0&trk_app=front-page&trk_origin=homepage&trk_destination=credit-score-signup" class="login-menu-item-sign-in">Sign in</a>
+        </li>
+        <li class="login-menu-item-sign-up">
+            <a href="/home/register?flow=credit-score&trk_source=nw_gn_4.0&trk_app=front-page&trk_origin=homepage&trk_destination=credit-score-signup" class="login-menu-item-create-account login-menu-item-button">Create an account</a>
+        </li>
+    </ul>
+    <div class="logo-wrapper">
+        <a href="/?trk=nw_gn_4.0"><img src="//assets.nerdwallet.com/img/nw-logos/nerdwallet-logo-new.png" alt="NerdWallet Logo"></a>
+    </div>
+    <div class='signup-link'>
+        <a href="/home/register?flow=credit-score&trk_source=nw_gn_4.0&trk_app=front-page&trk_origin=homepage&trk_destination=credit-score-signup&trk_location=nav-link-signup">Sign up</a>
+    </div>
+    <ul class="top-menu">
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/credit-cards/?trk=nw_gn_4.0">Credit Cards</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Credit Cards</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/the-best-credit-cards/?trk=nw_gn_4.0">Best credit cards of 2016</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-rewards-credit-cards/?trk=nw_gn_4.0">Best rewards cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-cash-back-credit-cards/?trk=nw_gn_4.0">Best cash back cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-travel-credit-cards/?trk=nw_gn_4.0">Best travel cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-balance-transfer-credit-cards/?trk=nw_gn_4.0">Best balance transfer cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-low-interest-credit-cards/?trk=nw_gn_4.0">Best low interest cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-small-business-credit-cards/?trk=nw_gn_4.0">Best business cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-credit-cards-for-bad-credit/?trk=nw_gn_4.0">Best cards for bad credit</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/rewards-credit-cards/?trk=nw_gn_4.0">Rewards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/cash-rewards-credit-cards/?trk=nw_gn_4.0">Cash back</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/travel-miles-credit-cards/?trk=nw_gn_4.0">Travel</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/balance-transfer-credit-cards/?trk=nw_gn_4.0">Balance transfer</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/zero-percent-credit-cards/?trk=nw_gn_4.0">Zero percent</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/student-credit-cards/?trk=nw_gn_4.0">Student</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/secured-credit-cards/?trk=nw_gn_4.0">Secured</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/business-credit-cards/?trk=nw_gn_4.0">Business</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-cards/credit-cards-101/?trk=nw_gn_4.0">Credit cards 101</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-cards/how-to-pick-the-best-credit-card-for-you-4-easy-steps/?trk=nw_gn_4.0">How to pick the best credit card</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-cards/apply-for-a-credit-card/?trk=nw_gn_4.0">Boost your odds of approval</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/reward-program-reviews/?trk=nw_gn_4.0">Credit card rewards programs</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-cards/balance-transfer-3/?trk=nw_gn_4.0">All about balance transfers</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-card-data/average-credit-card-debt-household/?trk=nw_gn_4.0">Annual credit card debt study</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/banking/?trk=nw_gn_4.0">Banking</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Banking</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/best-checking-accounts/?trk=nw_gn_4.0">Best checking accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/nerdwallets-best-savings-accounts/?trk=nw_gn_4.0">Best saving accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/best-money-market-accounts/?trk=nw_gn_4.0">Best money market accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/nerdwallets-best-prepaid-debit-cards/?trk=nw_gn_4.0">Best prepaid debit cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/bank-credit-union-reviews-checking-savings-accounts/?trk=nw_gn_4.0">Bank reviews</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/checking-accounts/?trk=nw_gn_4.0">Checking accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/rates/savings-account/?trk=nw_gn_4.0">Savings accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/rates/cds/best-cd-rates/?trk=nw_gn_4.0">CD rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/rates/money-market-rates/?trk=nw_gn_4.0">Money market accounts</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Calculate</h2>
+                        <li class="sub-menu-item">
+                            <a href="/banking/calculator/compound-interest-calculator/?trk=nw_gn_4.0">Compound interest calculator</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/faq-choose-checking-account/?trk=nw_gn_4.0">How to choose a bank account</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/what-is-a-checking-account/?trk=nw_gn_4.0">Checking accounts 101</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/savings-accounts-basics/?trk=nw_gn_4.0">Savings accounts 101</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/prepaid-debit-cards-what-you-should-know/?trk=nw_gn_4.0">Prepaid debit cards 101</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/investing/?trk=nw_gn_4.0">Investing</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Investing</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/best-online-brokers-platforms-for-day-trading/?trk=nw_gn_4.0">Best brokers for active traders</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/the-best-online-brokers-for-beginners/?trk=nw_gn_4.0">Best brokers for beginners</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/best-online-brokers-for-options-trading/?trk=nw_gn_4.0">Best brokers for options traders</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/the-best-ira-account-providers/?trk=nw_gn_4.0">Best IRA providers</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/the-best-roth-ira-account-providers/?trk=nw_gn_4.0">Best Roth IRA providers</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/investing/saving-for-college-529-plans/?trk=nw_gn_4.0">Find the best 529 plan</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/best-online-brokers-for-stock-trading/?trk=nw_gn_4.0">Best online brokers</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/best-robo-advisors/?trk=nw_gn_4.0">Best online advisors</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/investing/online-brokerage/?trk=nw_gn_4.0">Compare brokers</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Calculate</h2>
+                        <li class="sub-menu-item">
+                            <a href="/investing/retirement-calculator/?trk=nw_gn_4.0">Retirement calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/analyze-your-401k-fees/?trk=nw_gn_4.0">401k fee analyzer</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/investing/401k-calculator/?trk=nw_gn_4.0">401k savings calculator</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/how-to-invest-500-2/?trk=nw_gn_4.0">How to invest $500</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/roth-or-traditional-ira-account/?trk=nw_gn_4.0">Roth vs. traditional IRAs</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/rollover-401k-ira-best-providers/?trk=nw_gn_4.0">How to rollover your 401(k)</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/how-much-to-save-for-retirement/?trk=nw_gn_4.0">How much to save for retirement</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/what-is-how-to-open-brokerage-account/?trk=nw_gn_4.0">What is a brokerage account?</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/how-where-to-open-a-roth-ira-account/?trk=nw_gn_4.0">How to open a Roth IRA</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/mortgages/?trk=nw_gn_4.0">Mortgages</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Mortgages</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/mortgage-pre-approval/?trk=nw_gn_4.0">Get preapproved</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/refinance/?trk=nw_gn_4.0">Find a refinance lender</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/get-advice-from-an-expert-mortgage-broker/?trk=nw_gn_4.0">Get help from a mortgage broker</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/category/mortgages/homeownership/?trk=nw_gn_4.0">Homeownership portal</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/mortgage-rates/?trk=nw_gn_4.0">Mortgage rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/refinance-rates/?trk=nw_gn_4.0">Refinance rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/mortgage-rates/30-year-fixed/?trk=nw_gn_4.0">30 year fixed mortgage rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/mortgage-rates/15-year-fixed/?trk=nw_gn_4.0">15 year fixed mortgage rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/mortgage-rates/5-1-arm/?trk=nw_gn_4.0">5/1 ARM rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/mortgage-refinance-lenders/?trk=nw_gn_4.0">Compare refinance lenders</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Calculate</h2>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/how-much-house-can-i-afford/?trk=nw_gn_4.0">How much house can I afford?</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/mortgage-calculator?trk=nw_gn_4.0">Mortgage calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/refinance-calculator?trk=nw_gn_4.0">Refinance calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/cost-of-living-calculator/?trk=nw_gn_4.0">Cost of living calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/down-payment-calculator/?trk=nw_gn_4.0">Down payment calculator</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/how-to-get-a-mortgage?trk=nw_gn_4.0">How to get a mortgage</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/how-to-choose-the-best-mortgage/?trk=nw_gn_4.0">How to choose the best mortgage</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/get-the-best-mortgage-rates/?trk=nw_gn_4.0">Questions to ask for a lower mortgage rate</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/5-tips-finding-mortgage-lender/?trk=nw_gn_4.0">Tips for finding the best mortgage lender</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/how-to-refinance-your-mortgage/?trk=nw_gn_4.0">How to refinance your mortgage</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/programs-help-first-time-homebuyers/?trk=nw_gn_4.0">Help for first-time homebuyers</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/loans/?trk=nw_gn_4.0">Loans</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Loans</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/personal-loans-good-credit/?trk=nw_gn_4.0">Best personal loans for good credit</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/debt-consolidation-loans/?trk=nw_gn_4.0">Best personal loans for debt consolidation</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/student-loans/private-student-loans/?trk=nw_gn_4.0">Private student loan options</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/best-car-loans-for-good-fair-and-bad-credit/?trk=nw_gn_4.0">Best car loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/small-business/online-lending-basics-smallbusiness-loans/?trk=nw_gn_4.0">Small business loan online options</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/small-business/small-business-lender-reviews/?trk=nw_gn_4.0">Small business lender reviews</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/personal-loans/?trk=nw_gn_4.0">Personal loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/refinancing-student-loans/?trk=nw_gn_4.0">Student loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/best-places-to-refinance-your-car-loan/?trk=nw_gn_4.0">Auto refinance loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/small-business-loans/?trk=nw_gn_4.0">Small business loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/payday-loan-alternatives/?trk=nw_gn_4.0">Payday loan alternatives</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Calculate</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/whats-a-good-interest-rate-on-a-personal-loan/?trk=nw_gn_4.0">Personal loan calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/student-loans/student-loan-calculator/?trk=nw_gn_4.0">Student loan calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/car-loan-calculator/?trk=nw_gn_4.0">Car loan calculator</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/finance/how-to-build-credit/?trk=nw_gn_4.0">How to build credit</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/finance/consolidate-credit-card-debt-personal-loan/?trk=nw_gn_4.0">How to consolidate debt</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/student-loans/how-to-pay-for-college/?trk=nw_gn_4.0">Paying for college tips</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/student-loans/consolidate-student-loans-2/?trk=nw_gn_4.0">Understanding student loan consolidation</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/much-car-payment/?trk=nw_gn_4.0">How to decide what your car payment should be</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/small-business/how-to-get-a-small-business-loan/?trk=nw_gn_4.0">How to get a small business loan</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/insurance/?trk=nw_gn_4.0">Insurance</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Insurance</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/best-cheap-car-insurance/?trk=nw_gn_4.0">Best cheap car insurance</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/life-insurance-biggest-companies/?trk=nw_gn_4.0">Biggest life insurance companies</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/find-homeowners-insurance/?trk=nw_gn_4.0">Best homeowners insurance</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/insurance/compare-car-insurance-rates/?trk=nw_gn_4.0">Car insurance quotes</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/life-insurance/?trk=nw_gn_4.0">Life insurance quotes</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/health-insurance/?trk=nw_gn_4.0">Health insurance quotes</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/car-insurance-basics/cheap-full-coverage-insurance/?trk=nw_gn_4.0">Finding full coverage car insurance</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/what-is-the-difference-between-term-whole-life-insurance/?trk=nw_gn_4.0">Term life vs whole life insurance</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/save-money-homeowners-insurance/?trk=nw_gn_4.0">How to save on homeowners insurance</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/health/health-insurance-guide/?trk=nw_gn_4.0">Tips for picking the right health insurance</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item toggle">
+            <button class="side-menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
+                    <rect width="26" height="2" x="0" y="20" class="toggle-top-bar"></rect>
+                    <rect width="26" height="2" x="0" y="29" class="toggle-middle-bar"></rect>
+                    <rect width="26" height="2" x="0" y="38" class="toggle-bottom-bar"></rect>
+                </svg>
+            </button>
+        </li>
+    </ul>
+
+    <ul class="side-menu">
+        <form class="nav-search-wrapper" action="false">
+            <div class="nav-search-input-wrapper">
+                <span class="ss-gizmo ss-search"></span>
+                <input type="search" class="nav-search">
+            </div>
+            <div class="nav-search-controls-wrapper">
+                <a class="nav-search-clear"><span class="ss-delete"></span></a>
+            </div>
+        </form>
+        <li class="login-menu-wrap"><ul class="login-menu">
+
+    <li>
+        <span class="login-menu-item-tag-line">Get your free credit score.</span>
+    </li>
+    <li>
+        <a href="/home/signin?flow=credit-score&trk_source=nw_gn_4.0&trk_app=front-page&trk_origin=homepage&trk_destination=credit-score-signup" class="login-menu-item-sign-in">Sign in</a>
+    </li>
+    <li class="login-menu-item-sign-up">
+        <a href="/home/register?flow=credit-score&trk_source=nw_gn_4.0&trk_app=front-page&trk_origin=homepage&trk_destination=credit-score-signup" class="login-menu-item-create-account login-menu-item-button">Create an account</a>
+    </li>
+</ul>
+</li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/credit-cards/?trk=nw_gn_4.0">Credit Cards</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Credit Cards</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/the-best-credit-cards/?trk=nw_gn_4.0">Best credit cards of 2016</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-rewards-credit-cards/?trk=nw_gn_4.0">Best rewards cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-cash-back-credit-cards/?trk=nw_gn_4.0">Best cash back cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-travel-credit-cards/?trk=nw_gn_4.0">Best travel cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-balance-transfer-credit-cards/?trk=nw_gn_4.0">Best balance transfer cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-low-interest-credit-cards/?trk=nw_gn_4.0">Best low interest cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-small-business-credit-cards/?trk=nw_gn_4.0">Best business cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/top-credit-cards/nerdwallets-best-credit-cards-for-bad-credit/?trk=nw_gn_4.0">Best cards for bad credit</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/rewards-credit-cards/?trk=nw_gn_4.0">Rewards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/cash-rewards-credit-cards/?trk=nw_gn_4.0">Cash back</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/travel-miles-credit-cards/?trk=nw_gn_4.0">Travel</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/balance-transfer-credit-cards/?trk=nw_gn_4.0">Balance transfer</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/zero-percent-credit-cards/?trk=nw_gn_4.0">Zero percent</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/student-credit-cards/?trk=nw_gn_4.0">Student</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/secured-credit-cards/?trk=nw_gn_4.0">Secured</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/business-credit-cards/?trk=nw_gn_4.0">Business</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-cards/credit-cards-101/?trk=nw_gn_4.0">Credit cards 101</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-cards/how-to-pick-the-best-credit-card-for-you-4-easy-steps/?trk=nw_gn_4.0">How to pick the best credit card</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-cards/apply-for-a-credit-card/?trk=nw_gn_4.0">Boost your odds of approval</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/reward-program-reviews/?trk=nw_gn_4.0">Credit card rewards programs</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-cards/balance-transfer-3/?trk=nw_gn_4.0">All about balance transfers</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/credit-card-data/average-credit-card-debt-household/?trk=nw_gn_4.0">Annual credit card debt study</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/banking/?trk=nw_gn_4.0">Banking</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Banking</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/best-checking-accounts/?trk=nw_gn_4.0">Best checking accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/nerdwallets-best-savings-accounts/?trk=nw_gn_4.0">Best saving accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/best-money-market-accounts/?trk=nw_gn_4.0">Best money market accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/nerdwallets-best-prepaid-debit-cards/?trk=nw_gn_4.0">Best prepaid debit cards</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/bank-credit-union-reviews-checking-savings-accounts/?trk=nw_gn_4.0">Bank reviews</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/checking-accounts/?trk=nw_gn_4.0">Checking accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/rates/savings-account/?trk=nw_gn_4.0">Savings accounts</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/rates/cds/best-cd-rates/?trk=nw_gn_4.0">CD rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/rates/money-market-rates/?trk=nw_gn_4.0">Money market accounts</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Calculate</h2>
+                        <li class="sub-menu-item">
+                            <a href="/banking/calculator/compound-interest-calculator/?trk=nw_gn_4.0">Compound interest calculator</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/faq-choose-checking-account/?trk=nw_gn_4.0">How to choose a bank account</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/what-is-a-checking-account/?trk=nw_gn_4.0">Checking accounts 101</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/savings-accounts-basics/?trk=nw_gn_4.0">Savings accounts 101</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/banking/prepaid-debit-cards-what-you-should-know/?trk=nw_gn_4.0">Prepaid debit cards 101</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/investing/?trk=nw_gn_4.0">Investing</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Investing</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/best-online-brokers-platforms-for-day-trading/?trk=nw_gn_4.0">Best brokers for active traders</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/the-best-online-brokers-for-beginners/?trk=nw_gn_4.0">Best brokers for beginners</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/best-online-brokers-for-options-trading/?trk=nw_gn_4.0">Best brokers for options traders</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/the-best-ira-account-providers/?trk=nw_gn_4.0">Best IRA providers</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/the-best-roth-ira-account-providers/?trk=nw_gn_4.0">Best Roth IRA providers</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/investing/saving-for-college-529-plans/?trk=nw_gn_4.0">Find the best 529 plan</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/best-online-brokers-for-stock-trading/?trk=nw_gn_4.0">Best online brokers</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/best-robo-advisors/?trk=nw_gn_4.0">Best online advisors</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/investing/online-brokerage/?trk=nw_gn_4.0">Compare brokers</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Calculate</h2>
+                        <li class="sub-menu-item">
+                            <a href="/investing/retirement-calculator/?trk=nw_gn_4.0">Retirement calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/analyze-your-401k-fees/?trk=nw_gn_4.0">401k fee analyzer</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/investing/401k-calculator/?trk=nw_gn_4.0">401k savings calculator</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/how-to-invest-500-2/?trk=nw_gn_4.0">How to invest $500</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/roth-or-traditional-ira-account/?trk=nw_gn_4.0">Roth vs. traditional IRAs</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/rollover-401k-ira-best-providers/?trk=nw_gn_4.0">How to rollover your 401(k)</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/how-much-to-save-for-retirement/?trk=nw_gn_4.0">How much to save for retirement</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/what-is-how-to-open-brokerage-account/?trk=nw_gn_4.0">What is a brokerage account?</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/investing/how-where-to-open-a-roth-ira-account/?trk=nw_gn_4.0">How to open a Roth IRA</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/mortgages/?trk=nw_gn_4.0">Mortgages</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Mortgages</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/mortgage-pre-approval/?trk=nw_gn_4.0">Get preapproved</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/refinance/?trk=nw_gn_4.0">Find a refinance lender</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/get-advice-from-an-expert-mortgage-broker/?trk=nw_gn_4.0">Get help from a mortgage broker</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/category/mortgages/homeownership/?trk=nw_gn_4.0">Homeownership portal</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/mortgage-rates/?trk=nw_gn_4.0">Mortgage rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/refinance-rates/?trk=nw_gn_4.0">Refinance rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/mortgage-rates/30-year-fixed/?trk=nw_gn_4.0">30 year fixed mortgage rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/mortgage-rates/15-year-fixed/?trk=nw_gn_4.0">15 year fixed mortgage rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/mortgage-rates/5-1-arm/?trk=nw_gn_4.0">5/1 ARM rates</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/mortgage-refinance-lenders/?trk=nw_gn_4.0">Compare refinance lenders</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Calculate</h2>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/how-much-house-can-i-afford/?trk=nw_gn_4.0">How much house can I afford?</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/mortgage-calculator?trk=nw_gn_4.0">Mortgage calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/mortgages/refinance-calculator?trk=nw_gn_4.0">Refinance calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/cost-of-living-calculator/?trk=nw_gn_4.0">Cost of living calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/down-payment-calculator/?trk=nw_gn_4.0">Down payment calculator</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/how-to-get-a-mortgage?trk=nw_gn_4.0">How to get a mortgage</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/how-to-choose-the-best-mortgage/?trk=nw_gn_4.0">How to choose the best mortgage</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/get-the-best-mortgage-rates/?trk=nw_gn_4.0">Questions to ask for a lower mortgage rate</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/5-tips-finding-mortgage-lender/?trk=nw_gn_4.0">Tips for finding the best mortgage lender</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/how-to-refinance-your-mortgage/?trk=nw_gn_4.0">How to refinance your mortgage</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/mortgages/programs-help-first-time-homebuyers/?trk=nw_gn_4.0">Help for first-time homebuyers</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/loans/?trk=nw_gn_4.0">Loans</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Loans</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/personal-loans-good-credit/?trk=nw_gn_4.0">Best personal loans for good credit</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/debt-consolidation-loans/?trk=nw_gn_4.0">Best personal loans for debt consolidation</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/student-loans/private-student-loans/?trk=nw_gn_4.0">Private student loan options</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/best-car-loans-for-good-fair-and-bad-credit/?trk=nw_gn_4.0">Best car loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/small-business/online-lending-basics-smallbusiness-loans/?trk=nw_gn_4.0">Small business loan online options</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/small-business/small-business-lender-reviews/?trk=nw_gn_4.0">Small business lender reviews</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/personal-loans/?trk=nw_gn_4.0">Personal loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/refinancing-student-loans/?trk=nw_gn_4.0">Student loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/best-places-to-refinance-your-car-loan/?trk=nw_gn_4.0">Auto refinance loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/small-business-loans/?trk=nw_gn_4.0">Small business loans</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/payday-loan-alternatives/?trk=nw_gn_4.0">Payday loan alternatives</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Calculate</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/whats-a-good-interest-rate-on-a-personal-loan/?trk=nw_gn_4.0">Personal loan calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/student-loans/student-loan-calculator/?trk=nw_gn_4.0">Student loan calculator</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/car-loan-calculator/?trk=nw_gn_4.0">Car loan calculator</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-4">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/finance/how-to-build-credit/?trk=nw_gn_4.0">How to build credit</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/finance/consolidate-credit-card-debt-personal-loan/?trk=nw_gn_4.0">How to consolidate debt</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/student-loans/how-to-pay-for-college/?trk=nw_gn_4.0">Paying for college tips</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/student-loans/consolidate-student-loans-2/?trk=nw_gn_4.0">Understanding student loan consolidation</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/loans/much-car-payment/?trk=nw_gn_4.0">How to decide what your car payment should be</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/small-business/how-to-get-a-small-business-loan/?trk=nw_gn_4.0">How to get a small business loan</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <div class="menu-item-text-wrapper" onclick="return true">
+                <span class="menu-item-title"><a href="/blog/category/insurance/?trk=nw_gn_4.0">Insurance</a></span>
+            </div>
+            <ul class="sub-menu">
+                <a class="return-nav"><span class="ss-navigateleft"></span></a>
+                <h1>Insurance</h1>
+                <div class="mega-menu-wrapper">
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Review</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/best-cheap-car-insurance/?trk=nw_gn_4.0">Best cheap car insurance</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/life-insurance-biggest-companies/?trk=nw_gn_4.0">Biggest life insurance companies</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/find-homeowners-insurance/?trk=nw_gn_4.0">Best homeowners insurance</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Compare</h2>
+                        <li class="sub-menu-item">
+                            <a href="/insurance/compare-car-insurance-rates/?trk=nw_gn_4.0">Car insurance quotes</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/life-insurance/?trk=nw_gn_4.0">Life insurance quotes</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/health-insurance/?trk=nw_gn_4.0">Health insurance quotes</a>
+                        </li>
+                    </div>
+                    <div class="menu-panel columns-3">
+                        <h2 class="nav-header">Learn</h2>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/car-insurance-basics/cheap-full-coverage-insurance/?trk=nw_gn_4.0">Finding full coverage car insurance</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/what-is-the-difference-between-term-whole-life-insurance/?trk=nw_gn_4.0">Term life vs whole life insurance</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/insurance/save-money-homeowners-insurance/?trk=nw_gn_4.0">How to save on homeowners insurance</a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="/blog/health/health-insurance-guide/?trk=nw_gn_4.0">Tips for picking the right health insurance</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+    </ul>
+</header>
+
+<div id="main" class="content-wrapper">
+<script>window.__INITIAL_STATE__ = JSON.parse(unescape("%7B%22routing%22%3A%7B%7D%2C%22trackingCookies%22%3A%7B%22cookieID%22%3A%220452e526%22%2C%22browserSessionID%22%3A%2265ed3a3e%22%7D%2C%22experiments%22%3A%7B%22availableExperiments%22%3A%7B%22marketing_front_page_4%22%3A%7B%22variantID%22%3A447%2C%22variantName%22%3A%22control%22%2C%22testID%22%3A214%2C%22ramp%22%3A1%2C%22uuid%22%3A%220452e526%22%2C%22usesEEE%22%3A0%7D%7D%7D%7D"));</script><div id="react-root"><div class="route-container" data-reactroot="" data-reactid="1" data-react-checksum="-779565581"><div class="old-front-page-container" data-reactid="2"><!-- react-empty: 3 --><div class="new-home-wrapper" data-reactid="4"><div data-reactid="5"><div data-reactid="6"><div class="new-home-wrapper" data-reactid="7"><h1 data-reactid="8">Compare Best Credit Card Offers | Car Insurance | CD Rates | Savings</h1><ul class="home-carousel original-version" data-reactid="9"><li class="home-hero carousel-one" data-reactid="10"><div class="home-hero-msg" data-reactid="11"><div class="home-hero-h2" data-reactid="12"><h2 data-reactid="13">How do your credit cards stack up?</h2></div><div class="home-hero-p" data-reactid="14"><p data-reactid="15">Compare over 1,700 cards, in minutes, to find the one that&#x27;s right for you.</p></div><a href="/credit-cards?trk=nw_hp4_bv_indexpg-1" class="home-hero-btn" data-reactid="16">Compare cards now</a></div></li><li class="home-hero carousel-two" data-reactid="17"><div class="home-hero-msg-wide" data-reactid="18"><div class="home-hero-h2 home-hero-mobile" data-reactid="19"><h2 data-reactid="20"><!-- react-text: 21 -->Mortgage<!-- /react-text --><br data-reactid="22"/><!-- react-text: 23 -->payments through<!-- /react-text --><br data-reactid="24"/><!-- react-text: 25 -->the roof?<!-- /react-text --></h2></div><div class="home-hero-h2 home-hero-desktop" data-reactid="26"><h2 data-reactid="27">Mortgage payments through the roof?</h2></div><div class="home-hero-p" data-reactid="28"><p data-reactid="29">The average American can save about $3,000 a year just by refinancing their loan.</p></div><a href="/mortgages/mortgage-rates?loantype=refinance&amp;trk=nw_hp4_bv_indexpg-2" class="home-hero-btn" data-reactid="30">Compare rates now</a></div></li><li class="home-hero carousel-three" data-reactid="31"><div class="home-hero-msg" data-reactid="32"><div class="home-hero-h2" data-reactid="33"><h2 data-reactid="34">Taking stock of your investments?</h2></div><div class="home-hero-p" data-reactid="35"><p data-reactid="36">Join the thousands of people who are already using NerdWallet to find the best online broker.</p></div><a href="/blog/investing/best-online-brokers-for-stock-trading/?trk=nw_hp4_bv_indexpg-3" class="home-hero-btn" data-reactid="37">Compare brokers now</a></div></li><li class="home-hero carousel-four" data-reactid="38"><div class="home-hero-msg" data-reactid="39"><div class="home-hero-h2 home-hero-mobile" data-reactid="40"><h2 data-reactid="41"><!-- react-text: 42 -->Running<!-- /react-text --><br data-reactid="43"/><!-- react-text: 44 -->into high<!-- /react-text --><br data-reactid="45"/><!-- react-text: 46 -->rates?<!-- /react-text --></h2></div><div class="home-hero-h2 home-hero-desktop" data-reactid="47"><h2 data-reactid="48">Running into high rates?</h2></div><div class="home-hero-p" data-reactid="49"><p data-reactid="50">Save hundreds of dollars a year on your auto insurance. Get a quote in as little as 15 seconds.</p></div><a href="/insurance/compare-car-insurance-rates?trk=nw_hp4_bv_indexpg-4" class="home-hero-btn" data-reactid="51">Compare quotes now</a></div></li></ul><div class="home-nav" data-reactid="52"><ul data-reactid="53"><li data-reactid="54"><a href="" data-slide-index="0" class="home-nav__tab" data-reactid="55">Credit Cards</a></li><li data-reactid="56"><a href="" data-slide-index="1" class="home-nav__tab" data-reactid="57">Mortgages</a></li><li data-reactid="58"><a href="" data-slide-index="2" class="home-nav__tab" data-reactid="59">Investing</a></li><li data-reactid="60"><a href="" data-slide-index="3" class="home-nav__tab" data-reactid="61">Auto Insurance</a></li></ul></div></div><div class="home-props" data-reactid="62"><svg style="display:none;" data-reactid="63"><symbol id="home-icon-chat" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 175" data-reactid="64"><path d="M147.25, 31.5h-94c-1.48, 0-2.71.46-2.71, 1.94V82.49s46.74-.71, 48.22-0.71L98.24, 99.5h14.07a2.54, 2.54, 0, 0, 1, .93.51l22.38, 17.48a2.34, 2.34, 0, 0, 0, 1.39.58, 1.87, 1.87, 0, 0, 0, 1-.28, 2.27, 2.27, 0, 0, 0, .71-2.47L134.46, 99.5h12.78a2, 2, 0, 0, 0, 2.25-2.31V33.44C149.5, 32, 148.73, 31.5, 147.25, 31.5ZM76.72, 70.9a6.83, 6.83, 0, 1, 1, 6.83-6.83A6.83, 6.83, 0, 0, 1, 76.72, 70.9Zm23.51, 0a6.83, 6.83, 0, 1, 1, 6.83-6.83A6.83, 6.83, 0, 0, 1, 100.23, 70.9Zm23.51, 0a6.83, 6.83, 0, 1, 1, 6.83-6.83A6.83, 6.83, 0, 0, 1, 123.74, 70.9Z" style="fill:#00abcb;" data-reactid="65"></path><line x1="141.84" y1="10.54" x2="141.84" y2="18.43" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="66"></line><line x1="171.07" y1="39.8" x2="163.25" y2="39.8" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="67"></line><line x1="162.73" y1="19.04" x2="157.39" y2="24.38" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="68"></line><polygon points="2.68 147.88 18.65 147.88 13.54 166.58 37.62 147.88 98.87 147.88 98.87 81.98 2.68 81.98 2.68 147.88" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="69"></polygon><path d="M36.8, 102.14H45v8.09H36.8v-8.09Zm0, 19H45v8.09H36.8v-8.09Z" style="fill:#00abcb;" data-reactid="70"></path><path d="M50.5, 131.26c6.83-4.75, 9.76-9.4, 9.76-16.53S57.33, 103, 50.5, 98.2l3.39-5.11c9.3, 5.05, 14, 11.93, 14, 21.64s-4.7, 16.58-14, 21.64Z" style="fill:#00abcb;" data-reactid="71"></path></symbol><symbol id="home-icon-mag" xmlns="http: //www.w3.org/2000/svg" viewBox="0 0 175 175" data-reactid="72"><path d="M147.52, 155.79L109, 107.67l-10.72, 8.58, 38.56, 48.28a6.91, 6.91, 0, 1, 0, 10.78-8.63Z" style="fill:#00abcb;" data-reactid="73"></path><path d="M104.68, 44.93a43.64, 43.64, 0, 1, 0-10.18, 63.8l5.09, 6.36, 7.93-6.35-5.23-6.53A43.64, 43.64, 0, 0, 0, 104.68, 44.93Z" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="74"></path><circle cx="70.61" cy="72.2" r="35.4" transform="translate(-29.64 59.96) rotate(-38.68)" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="75"></circle><path d="M77.25, 46.05a28.85, 28.85, 0, 0, 1, 3.14, 1.39" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="76"></path><path d="M86.2, 51.39a28.6, 28.6, 0, 0, 1, 3.43, 39.29" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="77"></path><line x1="119.43" y1="120.71" x2="108.62" y2="129.37" style="fill:none;stroke:#464646;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="78"></line><line x1="141.78" y1="148.66" x2="131.03" y2="157.27" style="fill:none;stroke:#464646;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="79"></line><line x1="101.41" y1="19.02" x2="101.36" y2="25.62" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="80"></line><line x1="127.22" y1="46.82" x2="120.67" y2="46.77" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="81"></line><line x1="118.8" y1="29.39" x2="114.3" y2="33.82" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="82"></line></symbol><symbol id="home-icon-needle" xmlns="http: //www.w3.org/2000/svg" viewBox="0 0 175 175" data-reactid="83"><rect x="24.93" y="70.26" width="64.97" height="80.37" style="fill:#00abcb;" data-reactid="84"></rect><polygon points="95.54 163.01 18.8 163.01 24.73 150.74 24.73 70.46 18.8 57.8 95.54 57.8 89.61 70.46 89.61 150.74 95.54 163.01" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="85"></polygon><line x1="87.83" y1="81.63" x2="25.52" y2="81.63" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="86"></line><line x1="88.42" y1="96.97" x2="24.93" y2="100.44" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="87"></line><line x1="24.63" y1="114.98" x2="89.61" y2="119.25" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="88"></line><line x1="89.58" y1="134.58" x2="24.52" y2="137.24" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="89"></line><path d="M128.48, 50.34c-30.6-7.7-2.34-32.34, 0, 0" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="90"></path><line x1="127.76" y1="49.43" x2="169.86" y2="97.73" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="91"></line><path d="M113.88, 41.79a8.78, 8.78, 0, 0, 0, 0-17.57L46.68, 24s-16.8.66-16.8-14.71" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="92"></path><path d="M25.31, 81.76a20, 20, 0, 1, 1, 0-40h88.61" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="93"></path><line x1="166.27" y1="133.44" x2="159.23" y2="133.39" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="94"></line><line x1="136.63" y1="160.96" x2="136.69" y2="153.98" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="95"></line><line x1="155.21" y1="151.99" x2="150.49" y2="147.19" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="96"></line><path d="M125.63, 98.51a23.59, 23.59, 0, 1, 0, 23.59, 23.59A23.59, 23.59, 0, 0, 0, 125.63, 98.51Zm-7.07, 33.89a3.69, 3.69, 0, 1, 1, 3.69-3.69A3.69, 3.69, 0, 0, 1, 118.56, 132.4Zm0-12.9a3.69, 3.69, 0, 1, 1, 3.69-3.69A3.69, 3.69, 0, 0, 1, 118.56, 119.51Zm12.9, 12.9a3.69, 3.69, 0, 1, 1, 3.69-3.69A3.69, 3.69, 0, 0, 1, 131.45, 132.4Zm0-12.9a3.69, 3.69, 0, 1, 1, 3.69-3.69A3.69, 3.69, 0, 0, 1, 131.45, 119.51Z" style="fill:#00abcb;" data-reactid="97"></path></symbol><symbol id="home-icon-piggy" xmlns="http: //www.w3.org/2000/svg" viewBox="0 0 175 175" data-reactid="98"><path d="M22.8, 107C7.47, 109, 6.59, 88, 14, 88c7.74, 0, 2.92, 17.49-5, 18.32-3.12.33-5-.73-6.16-2.14" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="99"></path><line x1="57.13" y1="15.82" x2="62.32" y2="21.01" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="100"></line><line x1="102.51" y1="15.84" x2="97.37" y2="20.99" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="101"></line><line x1="79.92" y1="7.68" x2="79.92" y2="14.7" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="102"></line><circle cx="127.58" cy="88.66" r="12.4" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.28864765167236px;" data-reactid="103"></circle><circle cx="127.58" cy="88.66" r="5.15" data-reactid="104"></circle><path d="M109.74, 75.85A16.59, 16.59, 0, 0, 1, 124.4, 67" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="105"></path><path d="M111.07, 55.7l-41.45-.09v0a48, 48, 0, 0, 0-46.25, 48c0, 20.94, 8.89, 35.69, 28.59, 43.95, 0.12, 0, 0, .23, 0, 0.23L50.53, 156h0c-0.33, 2, 4.62, 4.55, 11.08, 5.68s12, 0.43, 12.35-1.58l1.46-8.43h29l1.46, 8.43c0.35, 2, 5.88, 2.72, 12.35, 1.58s11.4-3.68, 11.08-5.68h0l-1.64-8.46a48.19, 48.19, 0, 0, 0, 24.43-24.46h14c3.54, 0, 6.41-8, 6.41-17.87s-2.87-17.87-6.41-17.87h-12.8a48.16, 48.16, 0, 0, 0-23.9-26.71l-0.91-.2, 4.72-23.92a19.36, 19.36, 0, 0, 0-21.93, 15.37, 18.78, 18.78, 0, 0, 0-.35, 3.36" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="106"></path><path d="M93.12, 66.5c5.94-5, 9.82-11.25, 9.82-19a23, 23, 0, 1, 0-46, 0c0, 7.8, 3.89, 14, 9.82, 19H93.12Z" style="fill:#00abcb;" data-reactid="107"></path><path d="M78.58, 56.75a16.15, 16.15, 0, 0, 1-7.66-2.81l2.56-3.78a12.66, 12.66, 0, 0, 0, 5.28, 2.33V49.08c-4.57-1.05-6.9-2.61-6.9-6.13V42.9c0-3.35, 2.44-5.68, 6.78-6V35.29h3V37a12.92, 12.92, 0, 0, 1, 6, 2.21L85.25, 43a11.39, 11.39, 0, 0, 0-3.8-1.7V44.6c4.51, 1.05, 6.78, 2.67, 6.78, 6.19v0.06c0, 3.46-2.67, 5.59-6.7, 6v2.78h-3V56.75ZM78.77, 41c-1.39.11-1.93, 0.68-1.93, 1.42v0.06c0, 0.74.4, 1.16, 1.93, 1.59V41Zm4.54, 10.16V51.16c0-.77-0.43-1.19-1.9-1.62v3.12C82.72, 52.52, 83.32, 52, 83.32, 51.21Z" style="fill:#fff;" data-reactid="108"></path><line x1="61.84" y1="64.91" x2="97.7" y2="64.91" style="fill:none;stroke:#464646;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.82472860813141px;" data-reactid="109"></line></symbol></svg><div class="home-props-hdr" data-reactid="110"><span class="hzero" data-reactid="111">Better financial decisions start here</span></div><div class="home-props-sub-hdr" data-reactid="112"><p data-reactid="113">NerdWallet makes it simple to find the best deals on credit cards, insurance, mortgage rates and more. We’ll help you save time, reduce your monthly payments and rest easy knowing you’ve made the best financial decisions for you.</p></div><div class="home-props-cont" data-reactid="114"><ul data-reactid="115"><li data-reactid="116"><svg viewBox="0 0 175 175" class="home-props-icon" xmlns="http://www.w3.org/2000/svg" data-reactid="117"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#home-icon-needle" data-reactid="118"></use></svg><h3 data-reactid="119">Tailored advice</h3><p class="home-props-text" data-reactid="120">See when you can retire or what travel card is right for you. Every recommendation we make is tailored to you and your unique financial goals.</p></li><li data-reactid="121"><svg viewBox="0 0 175 175" class="home-props-icon" xmlns="http://www.w3.org/2000/svg" data-reactid="122"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#home-icon-mag" data-reactid="123"></use></svg><h3 data-reactid="124">Clear, honest info</h3><p class="home-props-text" data-reactid="125">No jargon or toggling between sites to guess your best option. Just fair, easy-to-understand info that&#x27;ll help you navigate any decision with confidence.</p></li><li data-reactid="126"><svg viewBox="0 0 175 175" class="home-props-icon" xmlns="http://www.w3.org/2000/svg" data-reactid="127"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#home-icon-chat" data-reactid="128"></use></svg><h3 data-reactid="129">On-call specialists</h3><p class="home-props-text" data-reactid="130">Have questions about things like retirement or homebuying? Our helpful specialists are ready to guide you through it. All you have to do is ask.</p></li><li data-reactid="131"><svg viewBox="0 0 175 175" class="home-props-icon" xmlns="http://www.w3.org/2000/svg" data-reactid="132"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#home-icon-piggy" data-reactid="133"></use></svg><h3 data-reactid="134">Big-time savings</h3><p class="home-props-text" data-reactid="135">Small tweaks can make a big difference. See how swapping your auto insurance company or refinancing your mortgage can lower your highest bills.</p></li></ul></div></div><div class="home-reads" data-reactid="136"><div class="home-reads__hdr" data-reactid="137"><span class="hzero" data-reactid="138">Must-reads by our experts</span></div><div class="home-reads__item" data-reactid="139"><a href="/blog/credit-card-data/travel-credit-cards-study/?trk=nw_hp4_bv_indexpg-5" class="home-reads__img read-1" data-reactid="140"><div class="home-reads__overlay" data-reactid="141"></div></a><div class="home-reads__info" data-reactid="142"><div class="home-reads__align" data-reactid="143"><h3 data-reactid="144"><a href="/blog/credit-card-data/travel-credit-cards-study/?trk=nw_hp4_bv_indexpg-6" data-reactid="145">2016 Travel Credit Card Study</a></h3><div class="home-reads__byline" data-reactid="146"><div class="home-reads__byline--pic" data-reactid="147"><img src="//cdn.nerdwallet.com/bp/homepage/v3/thumb-erin.jpg" height="30" width="30" alt="" data-reactid="148"/></div><div class="home-reads__byline--byline" data-reactid="149">by Erin El Issa</div></div><span class="home-reads__copy" data-reactid="150">Free travel is arguably one of the best perks of rewards credit cards. But consumers can leave thousands of bonus points on the table — equal to hundreds of dollars...</span></div></div></div><div class="home-reads__item" data-reactid="151"><a href="/blog/car-insurance-teens/?trk=nw_hp4_bv_indexpg-7" class="home-reads__img read-2" data-reactid="152"><div class="home-reads__overlay" data-reactid="153"></div></a><div class="home-reads__info" data-reactid="154"><div class="home-reads__align" data-reactid="155"><h3 data-reactid="156"><a href="/blog/car-insurance-teens/?trk=nw_hp4_bv_indexpg-8" data-reactid="157">A Guide to Auto Insurance and Safe Driving for Teenagers</a></h3><span class="home-reads__byline--nopic" data-reactid="158">by Maxime Rieman, Emily Starbuck Crone and Aubrey Cohen</span><span class="home-reads__copy" data-reactid="159">When teen drivers are caught speeding or driving under the influence...</span></div></div></div><div class="home-reads__item" data-reactid="160"><a href="/blog/mortgages/millennials-and-homebuying/?trk=nw_hp4_bv_indexpg-9" class="home-reads__img read-3" data-reactid="161"><div class="home-reads__overlay" data-reactid="162"></div></a><div class="home-reads__info" data-reactid="163"><div class="home-reads__align" data-reactid="164"><h3 data-reactid="165"><a href="/blog/mortgages/millennials-and-homebuying/?trk=nw_hp4_bv_indexpg-10" data-reactid="166">Millennials and Homebuying: Myths and Reality</a></h3><div class="home-reads__byline" data-reactid="167"><div class="home-reads__byline--pic" data-reactid="168"><img src="//cdn.nerdwallet.com/bp/homepage/v3/thumb-kamran.jpg" height="30" width="30" alt="" data-reactid="169"/></div><div class="home-reads__byline--byline" data-reactid="170">by Kamran Rosen</div></div><span class="home-reads__copy" data-reactid="171">A common narrative in our age is that millennials are breaking with the habits of their parents and...</span></div></div></div></div><div class="the-survey animated survey-hidden-mobile" data-reactid="172"><div class="survey-header" data-reactid="173"><span data-reactid="174">How did you hear about us?</span><div class="survey-close-icon" data-reactid="175"><div class="ss-gizmo ss-delete" data-reactid="176"></div></div></div><div class="iframe-wrapper" data-reactid="177"><iframe class="the-iframe" src="" data-reactid="178"></iframe></div></div><!-- react-text: 179 -->,<!-- /react-text --></div></div></div></div></div></div><footer id="global-footer" class="nav-view">
+    <div class="container">
+        <nav>
+            <ul class="menu">
+                <li id="1601"><a href="/credit-cards/?trk=nw_gf_4.0">Credit Cards</a></li>
+                <li id="1602"><a href="/blog/category/banking/?trk=nw_gf_4.0">Banking</a></li>
+                <li id="1603"><a href="/blog/category/investing/?trk=nw_gf_4.0">Investing</a></li>
+                <li id="1604"><a href="/blog/category/mortgages/?trk=nw_gf_4.0">Mortgages</a></li>
+                <li id="1605" class="hide-mobile"><a href="/blog/universities/?trk=nw_gf_4.0">University Partners</a></li>
+                <li id="1606"><a href="/blog/category/insurance/?trk=nw_gf_4.0">Insurance</a></li>
+                <li id="1607"><a href="/blog/category/loans/?trk=nw_gf_4.0">Loans</a></li>
+                <li id="1608"><a href="/blog/category/shopping/?trk=nw_gf_4.0">Shopping</a></li>
+                <li id="1609"><a href="/blog/category/utilities/?trk=nw_gf_4.0">Utilities</a></li>
+                <li class="empty hide-mobile">&nbsp;</li>
+                <li id="1611" class="hide-desktop"><a href="/blog/universities/?trk=nw_gf_4.0">University Partners</a></li>
+                <li id="1624"><a href="/about-us/?trk=nw_gf_4.0">About</a></li>
+                <li id="1612" class="secondary"><a href="/company/?trk=nw_gf_4.0">Company</a></li>
+                <li id="1613" class="secondary"><a href="/in-the-news/?trk=nw_gf_4.0">Press</a></li>
+                <li id="1614" class="secondary"><a href="/careers/?trk=nw_gf_4.0">Careers</a></li>
+                <li id="1615" class="secondary"><a href="/leadership/?trk=nw_gf_4.0">Leadership</a></li>
+                <li class="empty hide-desktop">&nbsp;</li>
+                <li id="1618"><a href="https://support.nerdwallet.com/?trk=nw_gf_4.0">Help</a></li>
+                <li class="empty hide-mobile">&nbsp;</li>
+                <li class="empty hide-mobile">&nbsp;</li>
+                <li class="empty hide-mobile">&nbsp;</li>
+            </ul>
+        </nav>
+        <ul class="social-links">
+            <a class="app-store-button" href="https://itunes.apple.com/app/apple-store/id1077539127?pt=1690421&amp;ct=GlobalNav%20Footer&amp;mt=8&ls=1">
+              <img src="https://cdn.nerdwallet.com/img/icons/global-footer/Download_on_the_App_Store_Badge_US-UK_135x40.svg" alt="download from app store" />
+            </a>
+            <li id="1619" class="twitter"><a href="https://twitter.com/NerdWallet">Twitter</a></li>
+            <li id="1620" class="facebook"><a href="https://www.facebook.com/NerdWallet">Facebook</a></li>
+            <li id="1621" class="instagram"><a href="https://www.instagram.com/nerdwallet/">Instagram</a></li>
+        </ul>
+        <div class="clearfix hide-mobile"></div>
+        <ul class="menu-secondary">
+            <li id="1622"><a href="/page/terms/?trk=nw_gf_4.0">Terms of Use</a></li>
+            <li id="1623"><a href="/page/privacy/?trk=nw_gf_4.0">Privacy Policy</a></li>
+        </ul>
+        <div class="copyright">
+            <img src="//cdn.nerdwallet.com/img/logos/NW_Logo_N_Logomark.svg" />&copy; 2016 NerdWallet, Inc. All Rights Reserved
+        </div>
+    </div>
+</footer>
+
+<section id="footer-disclaimer">
+    <div class="container">
+        <p class="disclaimer"><span class="title">Disclaimer:</span> NerdWallet strives to keep its information accurate and up to date. This information may be different than what you see when you visit a financial institution, service provider or specific product’s site. All financial products, shopping products and services are presented without warranty. When evaluating offers, please review the financial institution’s Terms and Conditions. Pre-qualified offers are not binding. If you find discrepancies with your credit score or information from your credit report, please contact TransUnion® directly.</p><p class="disclaimer">Additionally, this site may be compensated through third party advertisers. However, the results of our comparison tools, blog content and editorial reviews are based on objective analysis. For more information, please see our <a href="https://www.nerdwallet.com/blog/how-we-make-money/">Advertiser Disclosure</a>.</p>
+    </div>
+</section>
+	</div> <!-- #main - see header.html -->
+	<script type="text/javascript">
+		var nwPageTaxonomy = {};
+				nwPageTaxonomy["vertical"] = "homepage";
+				nwPageTaxonomy["topic"] = "";
+				nwPageTaxonomy["pageType"] = "Navigate";
+	</script>
+ 
+    <script type="text/javascript"> var nwVariantIds = [447]; </script> 
+	<script src="/lib/dist/analytics.min.js?v=4acf78610fe487811e97d1ef4483c752"></script>
+  <script type="text/javascript">
+    // Temporary fix until until /search/results does not use requirejs, as amplitude is incompatible
+    if (typeof requirejs === "undefined") {
+      (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script");r.type="text/javascript";
+      r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-3.1.0-min.gz.js";
+      r.onload=function(){e.amplitude.runQueuedFunctions()};var i=t.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(r,i);function s(e,t){e.prototype[t]=function(){this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
+      return this}}var o=function(){this._q=[];return this};var a=["add","append","clearAll","prepend","set","setOnce","unset"];
+      for(var u=0;u<a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[];return this;
+      };var p=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"];
+      for(var l=0;l<p.length;l++){s(c,p[l])}n.Revenue=c;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId"];
+      function v(e){function t(t){e[t]=function(){e._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
+      }}for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){e=(!e||e.length===0?"$default_instance":e).toLowerCase();
+      if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]};e.amplitude=n;
+      })(window,document);
+    }
+  </script>
+	<script src="/lib/dist/NWA.min.js?v=242a467b56b4611d7fe6ac36a33caa26"></script>
+	<noscript><img src="/lib/opt.gif" /></noscript>
+    <script type="text/javascript" src="/public/build/js/bundle.b5668baa2fa10c36f3bc.js"></script>
+	<!-- ClickTale Bottom part -->
+	<script type='text/javascript'>
+	    document.write(unescape("%3Cscript%20src='" +
+	                            (document.location.protocol == 'https:' ?
+	                             'https://clicktalecdn.sslcs.cdngc.net/' :
+	                             'http://cdn.clicktale.net/') +
+	                            "www11/ptc/0f8b41bb-b30d-450b-acc2-9d099cf1b29b.js'%20type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<!-- ClickTale end of Bottom part -->
+	<!-- Begin BlueKai Tag -->
+	<iframe name="__bkframe" height="0" width="0" frameborder="0" style="display:none;position:absolute;clip:rect(0px 0px 0px 0px)" src="about:blank"></iframe>
+	<script type="text/javascript" src="//tags.bkrtx.com/js/bk-coretag.js"></script>
+	<script type="text/javascript">
+					bk_addPageCtx("vertical", "homepage");
+					bk_addPageCtx("topic", "");
+					bk_addPageCtx("pageType", "Navigate");
+		bk_allow_multiple_calls = true;
+		bk_use_multiple_iframes = true;
+		bk_doJSTag(24867, 10);
+	</script>
+	<!-- End BlueKai Tag -->
+	<script>
+	!function(){
+		var once=function(fn){return function () {fn();fn = function () {};}};
+		var addTrackingPixels = once(function () {
+			var userId = NWA.metadata.get('userId');
+			// BlueKai UUID Swap
+			var bk_pix = document.createElement('img');bk_pix.src = '//tags.bluekai.com/site/30331?id=' + userId;
+			bk_pix.style.display = 'none';document.body.appendChild(bk_pix);
+			// Tapad UUID Swap
+			var tp_pix = document.createElement('img');tp_pix.src = '//tapestry.tapad.com/tapestry/1?ta_partner_id=2214&ta_format=png&ta_partner_did=' + userId;
+			tp_pix.style.display = 'none';document.body.appendChild(tp_pix);
+			// Sizmek Pixel Code
+			var sm_pix = document.createElement('script');sm_pix.src='https://bs.serving-sys.com/Serving/ActivityServer.bs?cn=as&amp;ActivityID=918404&amp;rnd='+(Math.random()*1000000)+'&amp;User_ID='+userId+'&amp;pageview_id='+NWA.metadata.get('pageViewId');
+			document.body.appendChild(sm_pix);
+			// Facebook Pixel Code
+			!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+				n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+				n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+				t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+				document,'script','//connect.facebook.net/en_US/fbevents.js');
+			fbq('init', '612184065591075', {external_id: userId});
+			fbq('track', 'PageView');
+		});
+		// uid swap
+		if(NWA.metadata.get('userId')){addTrackingPixels()}else{NWA.eventCenter.subscribe('userId_set',addTrackingPixels)}
+	}();
+	</script>
+	<!-- Facebook Pixel Code -->
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=612184065591075&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+
+
+  <!-- Quantcast Tag -->
+  <script type="text/javascript">
+    var _qevents = _qevents || [];
+
+    (function() {
+      var elem = document.createElement('script');
+      elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+      elem.async = true;
+      elem.type = "text/javascript";
+      var scpt = document.getElementsByTagName('script')[0];
+      scpt.parentNode.insertBefore(elem, scpt);
+    })();
+
+    _qevents.push({
+      qacct:"p-P4DS8qXcrRU2Q",
+      labels:'Vertical.homepage'
+    });
+  </script>
+  <noscript>
+    <div style="display:none;">
+      <img src="//pixel.quantserve.com/pixel/p-P4DS8qXcrRU2Q.gif" border="0" height="1" width="1" alt="Quantcast"/>
+    </div>
+  </noscript>
+  <!-- End Quantcast tag -->
+
+  <!-- Branch SDK -->
+  <script type="text/javascript">
+    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode".split(" "), 0);
+branch.init('key_live_mdCcHKAlRk2GLr5KRY3kmagaDubU4aK9');
+  </script>
+  <!-- End Brach SDK -->
+
+  <!-- Auth Dialog Code -->
+  <script type="text/javascript" src="https://apis.google.com/js/platform.js" defer></script>
+  <script type="text/javascript" src="https://cdn.nerdwallet.com/nodeapp/my-nerdwallet/production/nwapi/nwapi-production.js" defer></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBz-5AV-kNx9OMDQqoL7OQPyHU_eWoiFv0" defer></script>
+  <noscript id="deferred-styles">
+    <link rel="stylesheet" type="text/css" href="https://cdn.nerdwallet.com/nodeapp/my-nerdwallet/production/nwapi/nwapi.css">
+  </noscript>
+  <script>
+    var loadDeferredStyles = function() {
+      var addStylesNode = document.getElementById("deferred-styles");
+      var replacement = document.createElement("div");
+      replacement.innerHTML = addStylesNode.textContent;
+      document.body.appendChild(replacement)
+      addStylesNode.parentElement.removeChild(addStylesNode);
+    };
+    var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+    else window.addEventListener('load', loadDeferredStyles);
+  </script>
+  <!-- End Auth Dialog Code -->
+
+	</body>
+</html>
